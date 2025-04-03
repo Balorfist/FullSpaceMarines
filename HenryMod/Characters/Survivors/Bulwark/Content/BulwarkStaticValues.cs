@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace HenryMod.Survivors.Henry
+namespace SpaceMarines.Survivors.Bulwark
 {
-    public static class HenryStaticValues
+    public static class BulwarkStaticValues
     {
         public const float swordDamageCoefficient = 2.8f;
 

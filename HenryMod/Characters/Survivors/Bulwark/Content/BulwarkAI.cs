@@ -2,9 +2,9 @@
 using RoR2.CharacterAI;
 using UnityEngine;
 
-namespace HenryMod.Survivors.Henry
+namespace SpaceMarines.Survivors.Bulwark
 {
-    public static class HenryAI
+    public static class BulwarkAI
     {
         public static void Init(GameObject bodyPrefab, string masterName)
         {

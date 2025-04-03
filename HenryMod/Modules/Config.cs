@@ -2,11 +2,11 @@
 using BepInEx.Configuration;
 using UnityEngine;
 
-namespace HenryMod.Modules
+namespace SpaceMarines.Modules
 {
     public static class Config
     {
-        public static ConfigFile MyConfig = HenryPlugin.instance.Config;
+        public static ConfigFile MyConfig = SpaceMarinesPlugin.instance.Config;
 
         /// <summary>
         /// automatically makes config entries for disabling survivors

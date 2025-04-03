@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace HenryMod.Survivors.Henry.Components
+namespace SpaceMarines.Survivors.Bulwark.Components
 {
-    internal class HenryWeaponComponent : MonoBehaviour
+    internal class BulwarkWeaponComponent : MonoBehaviour
     {
         private void Awake()
         {

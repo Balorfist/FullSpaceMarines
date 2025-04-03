@@ -1,12 +1,12 @@
 ﻿using RoR2;
 using UnityEngine;
-using HenryMod.Modules;
+using SpaceMarines.Modules;
 using System;
 using RoR2.Projectile;
 
-namespace HenryMod.Survivors.Henry
+namespace SpaceMarines.Survivors.Bulwark
 {
-    public static class HenryAssets
+    public static class BulwarkAssets
     {
         // particle effects
         public static GameObject swordSwingEffect;

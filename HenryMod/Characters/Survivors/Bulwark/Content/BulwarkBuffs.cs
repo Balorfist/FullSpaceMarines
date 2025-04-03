@@ -1,16 +1,16 @@
 ﻿using RoR2;
 using UnityEngine;
 
-namespace HenryMod.Survivors.Henry
+namespace SpaceMarines.Survivors.Bulwark
 {
-    public static class HenryBuffs
+    public static class BulwarkBuffs
     {
         // armor buff gained during roll
         public static BuffDef armorBuff;
 
         public static void Init(AssetBundle assetBundle)
         {
-            armorBuff = Modules.Content.CreateAndAddBuff("HenryArmorBuff",
+            armorBuff = Modules.Content.CreateAndAddBuff("BulwarkArmorBuff",
                 LegacyResourcesAPI.Load<BuffDef>("BuffDefs/HiddenInvincibility").iconSprite,
                 Color.white,
                 false,

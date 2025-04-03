@@ -1,8 +1,8 @@
-﻿using HenryMod.Survivors.Henry.SkillStates;
+﻿using SpaceMarines.Survivors.Bulwark.SkillStates;
 
-namespace HenryMod.Survivors.Henry
+namespace SpaceMarines.Survivors.Bulwark
 {
-    public static class HenryStates
+    public static class BulwarkStates
     {
         public static void Init()
         {

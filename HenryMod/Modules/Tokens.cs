@@ -1,4 +1,4 @@
-﻿namespace HenryMod.Modules
+﻿namespace SpaceMarines.Modules
 {
     internal static class Tokens
     {
