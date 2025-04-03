@@ -73,7 +73,7 @@ namespace SpaceMarines.Modules
                 return null;
             }
 
-            GameObject newBodyPrefab = PrefabAPI.InstantiateClone(clonedBody, bodyInfo.bodyName, false);
+            GameObject newBodyPrefab = PrefabAPI.InstantiateClone(clonedBody, bodyInfo.bodyName);
 
             for (int i = newBodyPrefab.transform.childCount - 1; i >= 0; i--)
             {
@@ -557,7 +557,7 @@ namespace SpaceMarines.Modules
 
         public static GameObject CreateBlankMasterPrefab(GameObject bodyPrefab, string masterName)
         {
-            GameObject masterObject = PrefabAPI.InstantiateClone(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/CharacterMasters/CommandoMonsterMaster"), masterName, false);
+            GameObject masterObject = PrefabAPI.InstantiateClone(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/CharacterMasters/CommandoMonsterMaster"), masterName);
             //should the user call this themselves?
             Modules.ContentPacks.masterPrefabs.Add(masterObject);
 
