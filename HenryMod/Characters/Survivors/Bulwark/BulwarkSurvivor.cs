@@ -1,6 +1,7 @@
 ﻿using BepInEx.Configuration;
 using SpaceMarines.Modules;
 using SpaceMarines.Modules.Characters;
+using SpaceMarines.Characters.Weapons;
 using SpaceMarines.Survivors.Bulwark.Components;
 using SpaceMarines.Survivors.Bulwark.SkillStates;
 using RoR2;
@@ -8,6 +9,7 @@ using RoR2.Skills;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using ImperiumSpaceMarines.Characters.Weapons;
 
 namespace SpaceMarines.Survivors.Bulwark
 {
@@ -102,6 +104,7 @@ namespace SpaceMarines.Survivors.Bulwark
             BulwarkConfig.Init();
             BulwarkStates.Init();
             BulwarkTokens.Init();
+            WeaponsTokens.Init(BulwarkPrefix);
 
             BulwarkAssets.Init(assetBundle);
             BulwarkBuffs.Init(assetBundle);
@@ -215,10 +218,41 @@ namespace SpaceMarines.Survivors.Bulwark
         private void AddPrimarySkills()
         {
             Skills.CreateGenericSkillWithSkillFamily(bodyPrefab, SkillSlot.Primary);
+            SkillDef primarySkillDef1 = Skills.CreateSkillDef(
+                new SkillDefInfo(
+                    "BoltPistol",
+                    BulwarkPrefix + "BOLT_PISTOL_NAME",
+                    BulwarkPrefix + "BOLT_PISTOL_DESCRIPTION",
+                    assetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
+                    new EntityStates.SerializableEntityStateType(typeof(BoltPistol)),
+                    "Weapon2",
+                    true)
+            );
+
+            Skills.AddPrimarySkills(bodyPrefab, primarySkillDef1);
+
+            //here is a basic skill def with all fields accounted for
+            SkillDef primarySkillDef2 = Skills.CreateSkillDef(
+                new SkillDefInfo(
+                    "HeavyBoltPistol", 
+                    BulwarkPrefix + "HEAVY_BOLT_PISTOL_NAME",
+                    BulwarkPrefix + "HEAVY_BOLT_PISTOL_DESCRIPTION",
+                    assetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
+                    new EntityStates.SerializableEntityStateType(typeof(HeavyBoltPistol)),
+                    "Weapon2",
+                    true)
+            );
+
+            Skills.AddPrimarySkills(bodyPrefab, primarySkillDef2);
+        }
+
+        private void AddSecondarySkills()
+        {
+            Skills.CreateGenericSkillWithSkillFamily(bodyPrefab, SkillSlot.Secondary);
 
             //the primary skill is created using a constructor for a typical primary
             //it is also a SteppedSkillDef. Custom Skilldefs are very useful for custom behaviors related to casting a skill. see ror2's different skilldefs for reference
-            SteppedSkillDef primarySkillDef1 = Skills.CreateSkillDef<SteppedSkillDef>(new SkillDefInfo
+            SteppedSkillDef secondarySkillDef1 = Skills.CreateSkillDef<SteppedSkillDef>(new SkillDefInfo
                 (
                     "BulwarkSlash",
                     BulwarkPrefix + "PRIMARY_SLASH_NAME",
@@ -229,48 +263,8 @@ namespace SpaceMarines.Survivors.Bulwark
                     true
                 ));
             //custom Skilldefs can have additional fields that you can set manually
-            primarySkillDef1.stepCount = 2;
-            primarySkillDef1.stepGraceDuration = 0.5f;
-
-            Skills.AddPrimarySkills(bodyPrefab, primarySkillDef1);
-        }
-
-        private void AddSecondarySkills()
-        {
-            Skills.CreateGenericSkillWithSkillFamily(bodyPrefab, SkillSlot.Secondary);
-
-            //here is a basic skill def with all fields accounted for
-            SkillDef secondarySkillDef1 = Skills.CreateSkillDef(new SkillDefInfo
-            {
-                skillName = "BulwarkGun",
-                skillNameToken = BulwarkPrefix + "SECONDARY_GUN_NAME",
-                skillDescriptionToken = BulwarkPrefix + "SECONDARY_GUN_DESCRIPTION",
-                keywordTokens = new string[] { "KEYWORD_AGILE" },
-                skillIcon = assetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
-
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Shoot)),
-                activationStateMachineName = "Weapon2",
-                interruptPriority = EntityStates.InterruptPriority.Skill,
-
-                baseRechargeInterval = 1f,
-                baseMaxStock = 1,
-
-                rechargeStock = 1,
-                requiredStock = 1,
-                stockToConsume = 1,
-
-                resetCooldownTimerOnUse = false,
-                fullRestockOnAssign = true,
-                dontAllowPastMaxStocks = false,
-                mustKeyPress = false,
-                beginSkillCooldownOnSkillEnd = false,
-
-                isCombatSkill = true,
-                canceledFromSprinting = false,
-                cancelSprintingOnActivation = false,
-                forceSprintDuringState = false,
-
-            });
+            secondarySkillDef1.stepCount = 2;
+            secondarySkillDef1.stepGraceDuration = 0.5f;
 
             Skills.AddSecondarySkills(bodyPrefab, secondarySkillDef1);
         }

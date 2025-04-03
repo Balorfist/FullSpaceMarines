@@ -1,19 +1,19 @@
 ﻿using EntityStates;
-using SpaceMarines.Survivors.Bulwark;
+using ImperiumSpaceMarines.Characters.Weapons;
 using RoR2;
 using UnityEngine;
 
-namespace SpaceMarines.Survivors.Bulwark.SkillStates
+namespace SpaceMarines.Characters.Weapons
 {
-    public class Shoot : BaseSkillState
+    public class HeavyBoltPistol : BaseSkillState
     {
-        public static float damageCoefficient = BulwarkStaticValues.gunDamageCoefficient;
+        public static float damageCoefficient = WeaponsStacicValues.HeavyBoltPistolDamageCoefficient;
+        public static float recoil = WeaponsStacicValues.BaseRecoil * damageCoefficient;
         public static float procCoefficient = 1f;
-        public static float baseDuration = 0.6f;
+        public static float baseDuration = 0.5f;
         //delay on firing is usually ass-feeling. only set this if you know what you're doing
         public static float firePercentTime = 0.0f;
         public static float force = 800f;
-        public static float recoil = 3f;
         public static float range = 256f;
         public static GameObject tracerEffectPrefab = LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/Tracers/TracerGoldGat");
 
@@ -62,7 +62,7 @@ namespace SpaceMarines.Survivors.Bulwark.SkillStates
 
                 characterBody.AddSpreadBloom(1.5f);
                 EffectManager.SimpleMuzzleFlash(EntityStates.Commando.CommandoWeapon.FirePistol2.muzzleEffectPrefab, gameObject, muzzleString, false);
-                Util.PlaySound("BulwarkShootPistol", gameObject);
+                Util.PlaySound("HenryShootPistol", gameObject);
 
                 if (isAuthority)
                 {

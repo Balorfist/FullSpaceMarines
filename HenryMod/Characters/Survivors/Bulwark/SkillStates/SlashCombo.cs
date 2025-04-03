@@ -29,7 +29,7 @@ namespace SpaceMarines.Survivors.Bulwark.SkillStates
             attackRecoil = 0.5f;
             hitHopVelocity = 4f;
 
-            swingSoundString = "BulwarkSwordSwing";
+            swingSoundString = "HenrySwordSwing";
             hitSoundString = "";
             muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
             playbackRateParam = "Slash.playbackRate";

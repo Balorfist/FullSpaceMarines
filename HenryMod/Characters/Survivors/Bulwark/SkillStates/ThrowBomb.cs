@@ -20,7 +20,7 @@ namespace SpaceMarines.Survivors.Bulwark.SkillStates
             //base.effectPrefab = Modules.Assets.SomeMuzzleEffect;
             //targetmuzzle = "muzzleThrow"
 
-            attackSoundString = "BulwarkBombThrow";
+            attackSoundString = "HenryBombThrow";
 
             baseDuration = BaseDuration;
             baseDelayBeforeFiringProjectile = BaseDelayDuration;
